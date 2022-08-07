@@ -1,0 +1,11 @@
+{
+  "name": "@uxuip/eslint-config-vue",
+  "version": "0.1.0",
+  "author": "uxuip <uxuip@outlook.com> (https://github.com/uxuip)",
+  "license": "MIT",
+  "main": "index.js",
+  "dependencies": {
+    "@antfu/eslint-config-vue": "^0.25.2",
+    "@uxuip/eslint-config-ts": "workspace:*"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "@uxuip/eslint-config-basic",
+  "version": "0.1.0",
+  "author": "uxuip <uxuip@outlook.com> (https://github.com/uxuip)",
+  "license": "MIT",
+  "main": "index.js",
+  "dependencies": {
+    "@antfu/eslint-config-basic": "^0.25.2"
+  }
+}

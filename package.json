@@ -1,0 +1,23 @@
+{
+  "name": "@uxuip/eslint-config-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@7.1.0",
+  "description": "My eslint config presets, extend from @antfu",
+  "author": "uxuip <uxuip@outlook.com> (https://github.com/uxuip)",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint .",
+    "bump": "bumpp package.json packages/*/package.json --no-push",
+    "release": "pnpm -r publish"
+  },
+  "devDependencies": {
+    "@uxuip/eslint-config": "workspace:*",
+    "bumpp": "^8.2.1",
+    "eslint": "^8.21.0",
+    "typescript": "^4.7.4"
+  },
+  "eslintConfig": {
+    "extends": "@uxuip"
+  }
+}
