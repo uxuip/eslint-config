@@ -5,5 +5,6 @@ module.exports = {
   overrides: basicConfig.overrides,
   rules: {
     ...basicConfig.rules,
+    'import/order': ['error', { groups: ['builtin', 'external', 'parent', 'sibling', 'index', 'type'] }],
   },
 }
