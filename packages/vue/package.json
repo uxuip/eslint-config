@@ -1,6 +1,6 @@
 {
   "name": "@uxuip/eslint-config-vue",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "author": "uxuip <uxuip@outlook.com> (https://github.com/uxuip)",
   "license": "MIT",
   "main": "index.js",
