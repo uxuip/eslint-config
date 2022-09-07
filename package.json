@@ -9,7 +9,7 @@
   "scripts": {
     "lint": "eslint .",
     "bump": "bumpp package.json packages/*/package.json --no-push",
-    "release": "pnpm -r publish"
+    "release": "pnpm -r publish --access public"
   },
   "devDependencies": {
     "@uxuip/eslint-config": "workspace:*",
