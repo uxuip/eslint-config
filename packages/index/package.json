@@ -5,10 +5,7 @@
   "license": "MIT",
   "main": "index.js",
   "dependencies": {
-    "@antfu/eslint-config-vue": "^0.25.2",
+    "@antfu/eslint-config-vue": "^0.39.7",
     "@uxuip/eslint-config-vue": "workspace:*"
-  },
-  "devDependencies": {
-    "eslint": "^8.21.0"
   }
 }
