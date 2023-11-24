@@ -25,10 +25,10 @@
     "dev": "concurrently \"tsup --format esm,cjs --watch\" \"eslint-flat-config-viewer\"",
     "build": "tsup --format esm,cjs --clean --dts",
     "lint": "eslint . --fix",
-    "prepack": "pnpm build",
     "bump": "bumpp --no-push",
     "release": "pnpm publish",
     "typecheck": "tsc --noEmit",
+    "prepack": "pnpm build",
     "prepare": "simple-git-hooks"
   },
   "publishConfig": {
