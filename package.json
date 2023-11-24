@@ -29,7 +29,7 @@
     "bump": "bumpp --no-push",
     "release": "pnpm publish",
     "typecheck": "tsc --noEmit",
-    "postinstall": "npx simple-git-hooks"
+    "prepare": "simple-git-hooks"
   },
   "publishConfig": {
     "access": "public"
