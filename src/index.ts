@@ -24,6 +24,7 @@ const eslintConfig = (
         'curly': ['error', 'all'],
         'antfu/top-level-function': 'off',
         'import/order': ['error', { groups: ['builtin', 'external', 'parent', 'sibling', 'index', 'type'] }],
+        'unused-imports/no-unused-vars': 'warn',
       },
     },
     ...args,
