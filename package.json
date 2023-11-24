@@ -1,7 +1,7 @@
 {
   "name": "@uxuip/eslint-config",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "packageManager": "pnpm@8.10.5",
   "description": "ESLint Config",
   "author": "uxuip <uxuip@outlook.com> (https://github.com/uxuip)",
