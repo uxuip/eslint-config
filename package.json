@@ -12,18 +12,18 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/index.js",
+      "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     }
   },
-  "main": "./dist/index.js",
+  "main": "./dist/index.cjs",
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "dev": "concurrently \"tsup --format esm,cjs --watch\" \"eslint-flat-config-viewer\"",
-    "build": "tsup --format esm,cjs --clean --dts",
+    "dev": "concurrently \"unbuild --stub\" \"eslint-flat-config-viewer\"",
+    "build": "unbuild",
     "lint": "eslint . --fix",
     "bump": "bumpp --no-push",
     "release": "pnpm publish",
@@ -66,8 +66,8 @@
     "eslint-plugin-react-refresh": "^0.4.5",
     "lint-staged": "^15.2.0",
     "simple-git-hooks": "^2.9.0",
-    "tsup": "^8.0.1",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "unbuild": "^2.0.0"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"
