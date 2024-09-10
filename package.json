@@ -12,7 +12,7 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
+      "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     }
   },
@@ -22,9 +22,10 @@
     "dist"
   ],
   "scripts": {
-    "dev": "concurrently \"unbuild --stub\" \"eslint-flat-config-viewer\"",
-    "build": "unbuild",
-    "lint": "eslint . --fix",
+    "dev": "concurrently \"tsup --format esm,cjs --watch\" \"eslint-flat-config-viewer\"",
+    "build": "tsup --format esm,cjs --clean --dts",
+    "stub": "tsup --format esm",
+    "lint": "pnpm run stub && eslint .",
     "bump": "bumpp --no-push",
     "release": "pnpm publish",
     "typecheck": "tsc --noEmit",
@@ -52,23 +53,23 @@
     }
   },
   "dependencies": {
-    "@antfu/eslint-config": "^2.13.2"
+    "@antfu/eslint-config": "^2.27.3"
   },
   "devDependencies": {
-    "@types/eslint": "^8.56.7",
-    "@types/node": "^20.12.7",
-    "bumpp": "^9.4.0",
+    "@types/eslint": "^8.56.12",
+    "@types/node": "^20.16.5",
+    "bumpp": "^9.5.2",
     "concurrently": "^8.2.2",
-    "eslint": "^9.0.0",
-    "eslint-flat-config-utils": "^0.2.1",
+    "eslint": "^9.10.0",
+    "eslint-flat-config-utils": "^0.2.5",
     "eslint-flat-config-viewer": "^0.1.20",
-    "eslint-plugin-react": "^7.34.1",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.6",
-    "lint-staged": "^15.2.2",
+    "eslint-plugin-react": "^7.35.2",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.11",
+    "lint-staged": "^15.2.10",
     "simple-git-hooks": "^2.11.1",
-    "typescript": "^5.4.4",
-    "unbuild": "^2.0.0"
+    "tsup": "^8.2.4",
+    "typescript": "^5.6.2"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"

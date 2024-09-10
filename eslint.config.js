@@ -1,4 +1,4 @@
 // eslint-disable-next-line antfu/no-import-dist
-import eslint from './dist/index.mjs'
+import eslint from './dist/index.js'
 
-export default eslint({ vue: true })
+export default eslint()
