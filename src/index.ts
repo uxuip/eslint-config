@@ -23,9 +23,6 @@ const eslintConfig = (
             jsx: true,
             quotes: 'single',
             semi: false,
-            overrides: {
-              'style/brace-style': ['error', '1tbs', { allowSingleLine: true }],
-            },
           },
     },
     {
