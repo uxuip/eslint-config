@@ -32,6 +32,10 @@ const eslintConfig = (
         'antfu/top-level-function': 'off',
         'import/order': ['error', { groups: ['builtin', 'external', 'parent', 'sibling', 'index', 'type'] }],
         'unused-imports/no-unused-vars': 'warn',
+        'ts/no-unused-expressions': ['error', {
+          allowShortCircuit: true,
+          allowTernary: true,
+        }],
         ...(options?.vue || options.vue2) && {
           'vue/max-attributes-per-line': [
             'error',
