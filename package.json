@@ -21,6 +21,9 @@
   "files": [
     "dist"
   ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "dev": "concurrently \"tsup --format esm,cjs --watch\" \"eslint-flat-config-viewer\"",
     "build": "tsup --format esm,cjs --clean --dts",

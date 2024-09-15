@@ -1,6 +1,7 @@
-import antfu from '@antfu/eslint-config'
 import type { ConfigNames, OptionsConfig, TypedFlatConfigItem } from '@antfu/eslint-config'
 import type { FlatConfigComposer } from 'eslint-flat-config-utils'
+
+import antfu from '@antfu/eslint-config'
 
 type Options = Omit<OptionsConfig, 'stylistic'> & {
   stylistic?: boolean
@@ -29,8 +30,23 @@ const eslintConfig = (
       rules: {
         'no-console': ['warn', { allow: ['info', 'warn', 'error'] }],
         'curly': ['error', 'all'],
+        'import/order': 'off',
+        'perfectionist/sort-imports': ['error', {
+          type: 'natural',
+          newlinesBetween: 'ignore',
+          groups: [
+            'type',
+            ['builtin', 'external'],
+            'internal-type',
+            'internal',
+            ['parent-type', 'sibling-type', 'index-type'],
+            ['parent', 'sibling', 'index'],
+            'object',
+            ['side-effect', 'side-effect-style'],
+            'unknown',
+          ],
+        }],
         'antfu/top-level-function': 'off',
-        'import/order': ['error', { groups: ['builtin', 'external', 'parent', 'sibling', 'index', 'type'] }],
         'unused-imports/no-unused-vars': 'warn',
         'ts/no-unused-expressions': ['error', {
           allowShortCircuit: true,
@@ -84,6 +100,9 @@ const eslintConfig = (
           'react/avoid-shorthand-fragment': 'error',
           'react/no-default-props': 'error',
           'react/no-prop-types': 'error',
+        },
+        ...((options?.vue || options.vue2) && options?.unocss) && {
+          'unocss/order-attributify': 'off',
         },
       },
     },
