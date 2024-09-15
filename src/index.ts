@@ -36,7 +36,8 @@ const eslintConfig = (
           newlinesBetween: 'ignore',
           groups: [
             'type',
-            ['builtin', 'external'],
+            'builtin',
+            'external',
             'internal-type',
             'internal',
             ['parent-type', 'sibling-type', 'index-type'],
