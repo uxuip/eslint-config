@@ -17,6 +17,7 @@ const eslintConfig = (
   antfu(
     {
       ...options,
+      vue: options.vue || options.vue2,
       stylistic: options?.stylistic === false
         ? false
         : {
@@ -51,7 +52,7 @@ const eslintConfig = (
           allowShortCircuit: true,
           allowTernary: true,
         }],
-        ...(options?.vue || options.vue2) && {
+        ...(options.vue || options.vue2) && {
           'vue/max-attributes-per-line': [
             'error',
             {
@@ -86,7 +87,7 @@ const eslintConfig = (
             alphabetical: true,
           }],
         },
-        ...options?.vue2 && {
+        ...options.vue2 && {
           'vue/custom-event-name-casing': 'off',
           'vue/no-deprecated-v-on-native-modifier': 'off',
           'vue/no-deprecated-slot-scope-attribute': 'off',
@@ -94,13 +95,13 @@ const eslintConfig = (
           'vue/no-deprecated-v-bind-sync': 'off',
           'node/prefer-global/process': 'off',
         },
-        ...options?.react && {
+        ...options.react && {
           'react/prefer-shorthand-fragment': 'off',
           'react/avoid-shorthand-fragment': 'error',
           'react/no-default-props': 'error',
           'react/no-prop-types': 'error',
         },
-        ...((options?.vue || options.vue2) && options?.unocss) && {
+        ...((options.vue || options.vue2) && options.unocss) && {
           'unocss/order-attributify': 'off',
         },
       },
