@@ -25,7 +25,7 @@
     "node": ">=18.0.0"
   },
   "scripts": {
-    "dev": "concurrently \"tsup --format esm,cjs --watch\" \"eslint-flat-config-viewer\"",
+    "dev": "concurrently \"tsup --format esm,cjs --watch\" \"npx @eslint/config-inspector --config eslint.config.js\"",
     "build": "tsup --format esm,cjs --clean --dts",
     "stub": "tsup --format esm",
     "lint": "pnpm run stub && eslint .",
@@ -106,7 +106,6 @@
     "concurrently": "^8.2.2",
     "eslint": "^9.10.0",
     "eslint-flat-config-utils": "^0.2.5",
-    "eslint-flat-config-viewer": "^0.1.20",
     "eslint-plugin-react": "^7.35.2",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.11",
