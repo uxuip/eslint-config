@@ -35,6 +35,7 @@ const eslintConfig = (
         'perfectionist/sort-imports': ['error', {
           type: 'natural',
           newlinesBetween: 'ignore',
+          sortSideEffects: true,
           groups: [
             'type',
             'builtin',
