@@ -2,23 +2,18 @@
 
 [![code style](https://antfu.me/badge-code-style.svg)](https://github.com/antfu/eslint-config)
 
-## Defaults
-- Single quotes, no semi, tabs
-- TypeScript, JSX, React, Vue support
-- Use ESLint Stylistic for formatting by default, can be disabled to use other formatter.
-
 ## Usage
 
 By default, Vue and React settings are not enabled. You can enable them by importing `reactConfig()` or `vueConfig()` from `@uxuip/eslint-config` or call `uxuip({ react: true })` / `uxuip({ vue: true })`.
 
 ### Install
 ```
-pnpm i -D @uxuip/eslint-config
+pnpm i -D eslint @uxuip/eslint-config
 ```
 
 ### React Install
 ```
-pnpm i -D @uxuip/eslint-config eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-react-refresh
+pnpm i -D eslint @uxuip/eslint-config eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-react-refresh
 ```
 
 ### Create config file
@@ -51,11 +46,17 @@ const eslint = require('@uxuip/eslint-config').default
 module.exports = eslint()
 ```
 
-### VSCode Support (auto fix)
+## IDE Support (auto fix on save)
+
+<details>
+<summary>🟦 VS Code support</summary>
+
+<br>
 
 Install [VS Code ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
 Add the following settings to your `.vscode/settings.json`:
+
 ```jsonc
 {
   // Disable the default formatter, use eslint instead
@@ -109,17 +110,89 @@ Add the following settings to your `.vscode/settings.json`:
 }
 ```
 
-## Prettier
-Disable ESLint Stylistic rules:
+</details>
 
-```js
-// eslint.config.js
-import eslint from '@uxuip/eslint-config'
+<details>
+<summary>🟩 Neovim Support</summary>
 
-export default await eslint({
-  stylistic: false,
+<br>
+
+Update your configuration to use the following:
+
+```lua
+local customizations = {
+  { rule = 'style/*', severity = 'off', fixable = true },
+  { rule = 'format/*', severity = 'off', fixable = true },
+  { rule = '*-indent', severity = 'off', fixable = true },
+  { rule = '*-spacing', severity = 'off', fixable = true },
+  { rule = '*-spaces', severity = 'off', fixable = true },
+  { rule = '*-order', severity = 'off', fixable = true },
+  { rule = '*-dangle', severity = 'off', fixable = true },
+  { rule = '*-newline', severity = 'off', fixable = true },
+  { rule = '*quotes', severity = 'off', fixable = true },
+  { rule = '*semi', severity = 'off', fixable = true },
+}
+
+local lspconfig = require('lspconfig')
+-- Enable eslint for all supported languages
+lspconfig.eslint.setup(
+  {
+    filetypes = {
+      "javascript",
+      "javascriptreact",
+      "javascript.jsx",
+      "typescript",
+      "typescriptreact",
+      "typescript.tsx",
+      "vue",
+      "html",
+      "markdown",
+      "json",
+      "jsonc",
+      "yaml",
+      "toml",
+      "xml",
+      "gql",
+      "graphql",
+      "astro",
+      "svelte",
+      "css",
+      "less",
+      "scss",
+      "pcss",
+      "postcss"
+    },
+    settings = {
+      -- Silent the stylistic rules in you IDE, but still auto fix them
+      rulesCustomizations = customizations,
+    },
+  }
+)
+```
+
+### Neovim format on save
+
+There's few ways you can achieve format on save in neovim:
+
+- `nvim-lspconfig` has a `EslintFixAll` command predefined, you can create a autocmd to call this command after saving file.
+
+```lua
+lspconfig.eslint.setup({
+  --- ...
+  on_attach = function(client, bufnr)
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      command = "EslintFixAll",
+    })
+  end,
 })
 ```
+
+- Use [conform.nvim](https://github.com/stevearc/conform.nvim).
+- Use [none-ls](https://github.com/nvimtools/none-ls.nvim)
+- Use [nvim-lint](https://github.com/mfussenegger/nvim-lint)
+
+</details>
 
 ## FAQ
 ### Why extends @antfu/eslint-config?
