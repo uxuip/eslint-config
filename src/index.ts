@@ -18,14 +18,6 @@ const eslintConfig = (
     {
       ...options,
       vue: options.vue || options.vue2,
-      stylistic: options?.stylistic === false
-        ? false
-        : {
-            indent: 2,
-            jsx: true,
-            quotes: 'single',
-            semi: false,
-          },
     },
     {
       rules: {
